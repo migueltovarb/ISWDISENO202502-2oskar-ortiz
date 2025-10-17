@@ -30,7 +30,7 @@ Toda la documentación se encuentra en la carpeta [`/docs`](./docs) e incluye:
 
 ## 🧑‍💻 Equipo de desarrollo
 - **Oskar Ortiz** – Desarrollador principal  
-- **Universidad de Nariño** – Ingeniería de Software  
+- **Universidad Cooperativa** – Ingeniería de Software  
 - Campus: Pasto
 
 ---
