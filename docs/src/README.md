@@ -54,8 +54,8 @@ Distribuido bajo la licencia **MIT**.
 
 ## 🌐 Enlaces Útiles
 
-- 📘 [Wiki del Proyecto](../../wiki)
-- 📂 [Carpeta /docs](./docs/)
+- 📘 [Wiki del Proyecto](https://github.com/migueltovarb/ISWDISENO202502-2oskar-ortiz/wiki)
+- 📂 [Carpeta /docs](https://github.com/migueltovarb/ISWDISENO202502-2oskar-ortiz/tree/main/docs)
 - 🧩 [Visual Paradigm Diagrams](./docs/visual_paradigm/)
 - 🧑‍💻 [Repositorio GitHub](https://github.com/USERNAME/MediCitas)
 
