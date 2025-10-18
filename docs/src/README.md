@@ -1,53 +1,65 @@
-# 💼 Laboralink
-
-**Laboralink** es una plataforma digital diseñada para conectar a profesionales y empresas mediante oportunidades laborales, publicaciones, artículos y networking.
 
 ---
 
-## 🚀 Objetivo del proyecto
-Facilitar la interacción profesional entre usuarios, promover el crecimiento laboral y académico, y crear un espacio digital confiable para compartir conocimiento y oportunidades.
+## 📖 Documentación
+
+Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **Wiki** del repositorio, incluyendo:
+
+- Historias de Usuario (H001–H008)  
+- Casos de Uso  
+- Diagramas UML  
+- Requerimientos Funcionales y No Funcionales  
+- Resumen del Proyecto Final  
+- Detalles Técnicos y Conclusión  
+
+📚 [Ir a la Wiki del Proyecto](../../wiki)
 
 ---
 
-## 🧠 Características principales
-- Creación y gestión de perfiles profesionales.
-- Feed de noticias actualizable.
-- Publicación de artículos y multimedia.
-- Sistema de conexión entre usuarios.
-- Compartir contenido y seguir publicaciones.
+## 🧪 Estado Actual del Proyecto
+
+| Etapa | Estado |
+|--------|---------|
+| Configuración del repositorio | ✅ Completado |
+| Historias de usuario | ✅ Completado |
+| Diagramas UML | 🟡 En desarrollo |
+| Desarrollo funcional (Java, BD, APIs) | ⏳ En progreso |
+| Pruebas y despliegue | ⏳ Pendiente |
 
 ---
 
-## 🧩 Documentación
-Toda la documentación se encuentra en la carpeta [`/docs`](./docs) e incluye:
-- Historias de usuario (H001–H008)
-- Requerimientos funcionales y no funcionales
-- Casos de uso
-- Diagramas
-- Avances del desarrollo
+## 👨‍💻 Equipo de Desarrollo
+
+**Oskar Ortiz**  
+Estudiante de Ingeniería de Software  
+**Universidad Cooperativa de Colombia – Campus Pasto**  
+Rol: Desarrollador principal del sistema **MediCitas**
 
 ---
 
-## 🧑‍💻 Equipo de desarrollo
-- **Oskar Ortiz** – Desarrollador principal  
-- **Universidad Cooperativa** – Ingeniería de Software  
-- Campus: Pasto
+## 🗂️ Gestión y Control
+
+- **Wiki del Proyecto:** Documentación estructurada por módulos.  
+- **Issues:** Registro y seguimiento de historias de usuario, bugs y mejoras.  
+- **Commits:** Cambios documentados por etapa de desarrollo.  
 
 ---
 
-## 🗂️ Wiki y gestión
-> La wiki del proyecto estará disponible en la pestaña **Wiki** del repositorio.  
-> Los issues se manejarán en la pestaña **Issues** de GitHub.
+## 🔒 Licencia
+
+Este proyecto es de carácter **académico y de aprendizaje**, desarrollado en el marco del curso **Diseño de Software**.  
+Distribuido bajo la licencia **MIT**.
 
 ---
 
-## ⚙️ Tecnologías
-- **Frontend:** React / TailwindCSS  
-- **Backend:** Django (Python)  
-- **Base de datos:** PostgreSQL  
-- **Control de versiones:** GitHub
+## 🌐 Enlaces Útiles
+
+- 📘 [Wiki del Proyecto](../../wiki)
+- 📂 [Carpeta /docs](./docs/)
+- 🧩 [Visual Paradigm Diagrams](./docs/visual_paradigm/)
+- 🧑‍💻 [Repositorio GitHub](https://github.com/USERNAME/MediCitas)
 
 ---
 
-## 📜 Licencia
-Este proyecto es de carácter académico y de aprendizaje, bajo licencia MIT.
+> ✨ *“El buen diseño no solo se ve, también se siente en la experiencia del usuario.”*  
+> — Proyecto MediCitas 2025
