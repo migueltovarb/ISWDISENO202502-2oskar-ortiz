@@ -12,7 +12,7 @@ Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **W
 - Resumen del Proyecto Final  
 - Detalles Técnicos y Conclusión  
 
-📚 [Ir a la Wiki del Proyecto](../../wiki)
+📚 [Ir a la Wiki del Proyecto](https://github.com/migueltovarb/ISWDISENO202502-2oskar-ortiz/wiki)
 
 ---
 
