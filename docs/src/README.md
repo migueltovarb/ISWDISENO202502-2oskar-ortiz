@@ -22,7 +22,7 @@ Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **W
 |--------|---------|
 | Configuración del repositorio | ✅ Completado |
 | Historias de usuario | ✅ Completado |
-| Diagramas UML | 🟡 En desarrollo |
+| Diagramas UML | ✅ Completado |
 | Desarrollo funcional (Java, BD, APIs) | ⏳ En progreso |
 | Pruebas y despliegue | ⏳ Pendiente |
 
