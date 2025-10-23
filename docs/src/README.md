@@ -7,7 +7,8 @@ Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **W
 
 - Historias de Usuario (H001–H008)  
 - Casos de Uso  
-- Diagramas UML  
+- Diagramas UML
+- Escenarios de Calidad
 - Requerimientos Funcionales y No Funcionales  
 - Resumen del Proyecto Final  
 - Detalles Técnicos y Conclusión  
