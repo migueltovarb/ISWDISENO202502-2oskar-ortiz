@@ -28,6 +28,16 @@ Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **W
 | Pruebas y despliegue | ⏳ Pendiente |
 
 ---
+---
+
+## 🧠 Actualización del proyecto: Integración y estructura final (octubre 2025)
+
+### 📂 Organización del repositorio
+
+El proyecto **MediCitas** ahora cuenta con una estructura de carpetas actualizada y organizada dentro del repositorio GitHub:
+se encuentra en abajo de docs que es la carpeta principal de documentacion del proyecto final, abajo de docs se encuentra la carpeta del codigo back y front, todo el codigo completo 
+
+---
 
 ## 👨‍💻 Equipo de Desarrollo
 
