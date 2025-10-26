@@ -1,19 +1,28 @@
 package com.medicitas.controller;
 
-import com.medicitas.model.Cita;
-import com.medicitas.service.CitaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import com.medicitas.model.Cita;
+import com.medicitas.repository.CitaRepository;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/citas")
+@CrossOrigin(origins = "*")
 public class CitaController {
-    private final CitaService service;
-    public CitaController(CitaService service) { this.service = service; }
 
+    @Autowired
+    private CitaRepository citaRepository;
+
+    // ✅ 1. Obtener todas las citas
     @GetMapping
-    public List<Cita> all() { return service.getAll(); }
+    public List<Cita> getAllCitas() {
+        return citaRepository.findAll();
+    }
 
+    // ✅ 2. Crear una nueva cita (POST)
     @PostMapping
-    public Cita create(@RequestBody Cita c) { return service.create(c); }
+    public Cita crearCita(@RequestBody Cita cita) {
+        return citaRepository.save(cita);
+    }
 }

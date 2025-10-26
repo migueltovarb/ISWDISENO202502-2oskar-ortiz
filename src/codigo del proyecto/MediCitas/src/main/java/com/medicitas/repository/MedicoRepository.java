@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MedicoRepository extends MongoRepository<Medico, String> {
-    // si quieres métodos personalizados, defínelos acá
+    Medico findByEspecialidad(String especialidad);
 }

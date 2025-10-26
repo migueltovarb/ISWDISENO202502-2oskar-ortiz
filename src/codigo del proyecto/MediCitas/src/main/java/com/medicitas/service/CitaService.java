@@ -2,23 +2,35 @@ package com.medicitas.service;
 
 import com.medicitas.model.Cita;
 import com.medicitas.repository.CitaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CitaService {
-    private final CitaRepository repo;
 
-    public CitaService(CitaRepository repo) {
-        this.repo = repo;
+    @Autowired
+    private CitaRepository citaRepository;
+
+    // Obtener todas las citas
+    public List<Cita> findAll() {
+        return citaRepository.findAll();
     }
 
-    public Cita create(Cita c) {
-        c.setEstado(com.medicitas.model.EstadoCita.PENDIENTE);
-        return repo.save(c);
+    // Guardar o crear una cita
+    public Cita save(Cita cita) {
+        return citaRepository.save(cita);
     }
 
-    public List<Cita> getAll() { return repo.findAll(); }
+    // Buscar cita por ID
+    public Optional<Cita> findById(String id) {
+        return citaRepository.findById(id);
+    }
 
-    // más métodos según necesidad
+    // Eliminar cita por ID
+    public void deleteById(String id) {
+        citaRepository.deleteById(id);
+    }
 }

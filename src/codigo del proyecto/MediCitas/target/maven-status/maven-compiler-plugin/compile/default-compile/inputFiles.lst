@@ -1,14 +1,19 @@
-C:\medicitas\src\main\java\com\medicitas\controller\CitaController.java
-C:\medicitas\src\main\java\com\medicitas\controller\PacienteController.java
-C:\medicitas\src\main\java\com\medicitas\MediCitasApplication.java
-C:\medicitas\src\main\java\com\medicitas\model\Cita.java
-C:\medicitas\src\main\java\com\medicitas\model\Especialidad.java
-C:\medicitas\src\main\java\com\medicitas\model\EstadoCita.java
-C:\medicitas\src\main\java\com\medicitas\model\Horario.java
-C:\medicitas\src\main\java\com\medicitas\model\Medico.java
-C:\medicitas\src\main\java\com\medicitas\model\Paciente.java
-C:\medicitas\src\main\java\com\medicitas\model\Usuario.java
-C:\medicitas\src\main\java\com\medicitas\repository\CitaRepository.java
-C:\medicitas\src\main\java\com\medicitas\repository\MedicoRepository.java
-C:\medicitas\src\main\java\com\medicitas\repository\PacienteRepository.java
-C:\medicitas\src\main\java\com\medicitas\service\CitaService.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\controller\CitaController.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\controller\HomeController.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\controller\MedicoController.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\controller\PacienteController.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\MediCitasApplication.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\Cita.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\Especialidad.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\EstadoCita.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\Horario.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\Medico.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\Paciente.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\model\Usuario.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\repository\CitaRepository.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\repository\MedicoRepository.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\repository\PacienteRepository.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\repository\UsuarioRepository.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\service\CitaService.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\service\MedicoService.java
+C:\Users\Admin\ISWDISENO202502-2oskar-ortiz\ISWDISENO202502-2oskar-ortiz\src\codigo del proyecto\MediCitas\src\main\java\com\medicitas\service\PacienteService.java

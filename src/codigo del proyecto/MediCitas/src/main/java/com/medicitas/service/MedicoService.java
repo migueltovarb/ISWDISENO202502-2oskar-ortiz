@@ -3,9 +3,7 @@ package com.medicitas.service;
 import com.medicitas.model.Medico;
 import com.medicitas.repository.MedicoRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MedicoService {
@@ -16,6 +14,7 @@ public class MedicoService {
         this.repo = repo;
     }
 
+    // ✅ Cambiamos el nombre a "save" para coincidir con el controlador
     public Medico save(Medico medico) {
         return repo.save(medico);
     }
@@ -25,8 +24,7 @@ public class MedicoService {
     }
 
     public Medico findById(String id) {
-        Optional<Medico> opt = repo.findById(id);
-        return opt.orElse(null);
+        return repo.findById(id).orElse(null);
     }
 
     public void delete(String id) {
