@@ -8,25 +8,25 @@ public class Cita {
 
     @Id
     private String id;
-    private String fecha;
-    private String hora;
-    private String motivo;
-    private String idPaciente;
-    private String idMedico;
-    private EstadoCita estado; // <-- enum
+    private String fecha;      // Ejemplo: "2025-11-10"
+    private String hora;       // Ejemplo: "09:30"
+    private String motivo;     // Ejemplo: "Consulta general"
+    private String estado;     // Ejemplo: "Agendada", "Cancelada", "Completada"
+    private String idMedico;   // ID del médico
+    private String idPaciente; // ID del paciente
 
     public Cita() {}
 
-    public Cita(String fecha, String hora, String motivo, String idPaciente, String idMedico, EstadoCita estado) {
+    public Cita(String fecha, String hora, String motivo, String estado, String idMedico, String idPaciente) {
         this.fecha = fecha;
         this.hora = hora;
         this.motivo = motivo;
-        this.idPaciente = idPaciente;
-        this.idMedico = idMedico;
         this.estado = estado;
+        this.idMedico = idMedico;
+        this.idPaciente = idPaciente;
     }
 
-    // getters / setters
+    // Getters y Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -39,12 +39,12 @@ public class Cita {
     public String getMotivo() { return motivo; }
     public void setMotivo(String motivo) { this.motivo = motivo; }
 
-    public String getIdPaciente() { return idPaciente; }
-    public void setIdPaciente(String idPaciente) { this.idPaciente = idPaciente; }
+    public String getEstado() { return estado; }
+    public void setEstado(String estado) { this.estado = estado; }
 
     public String getIdMedico() { return idMedico; }
     public void setIdMedico(String idMedico) { this.idMedico = idMedico; }
 
-    public EstadoCita getEstado() { return estado; }
-    public void setEstado(EstadoCita estado) { this.estado = estado; }
+    public String getIdPaciente() { return idPaciente; }
+    public void setIdPaciente(String idPaciente) { this.idPaciente = idPaciente; }
 }

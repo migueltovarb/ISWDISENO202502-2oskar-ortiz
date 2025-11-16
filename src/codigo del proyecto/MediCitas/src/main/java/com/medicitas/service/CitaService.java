@@ -14,23 +14,38 @@ public class CitaService {
     @Autowired
     private CitaRepository citaRepository;
 
-    // Obtener todas las citas
-    public List<Cita> findAll() {
+    public List<Cita> listarTodas() {
         return citaRepository.findAll();
     }
 
-    // Guardar o crear una cita
-    public Cita save(Cita cita) {
-        return citaRepository.save(cita);
-    }
-
-    // Buscar cita por ID
-    public Optional<Cita> findById(String id) {
+    public Optional<Cita> obtenerPorId(String id) {
         return citaRepository.findById(id);
     }
 
-    // Eliminar cita por ID
-    public void deleteById(String id) {
+    public Cita guardar(Cita cita) {
+        return citaRepository.save(cita);
+    }
+
+    public Cita actualizar(String id, Cita citaActualizada) {
+        Optional<Cita> optionalCita = citaRepository.findById(id);
+
+        if (optionalCita.isPresent()) {
+            Cita citaExistente = optionalCita.get();
+
+            citaExistente.setFecha(citaActualizada.getFecha());
+            citaExistente.setHora(citaActualizada.getHora());
+            citaExistente.setMotivo(citaActualizada.getMotivo());
+            citaExistente.setEstado(citaActualizada.getEstado());
+            citaExistente.setIdMedico(citaActualizada.getIdMedico());
+            citaExistente.setIdPaciente(citaActualizada.getIdPaciente());
+
+            return citaRepository.save(citaExistente);
+        } else {
+            return null;
+        }
+    }
+
+    public void eliminar(String id) {
         citaRepository.deleteById(id);
     }
 }

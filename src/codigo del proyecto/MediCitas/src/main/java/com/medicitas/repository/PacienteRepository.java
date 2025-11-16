@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PacienteRepository extends MongoRepository<Paciente, String> {
-    // Puedes agregar consultas personalizadas si las necesitas
     Paciente findByCorreo(String correo);
 }

@@ -2,32 +2,49 @@ package com.medicitas.service;
 
 import com.medicitas.model.Medico;
 import com.medicitas.repository.MedicoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MedicoService {
 
-    private final MedicoRepository repo;
+    @Autowired
+    private MedicoRepository medicoRepository;
 
-    public MedicoService(MedicoRepository repo) {
-        this.repo = repo;
+    public List<Medico> listarTodos() {
+        return medicoRepository.findAll();
     }
 
-    // ✅ Cambiamos el nombre a "save" para coincidir con el controlador
-    public Medico save(Medico medico) {
-        return repo.save(medico);
+    public Optional<Medico> obtenerPorId(String id) {
+        return medicoRepository.findById(id);
     }
 
-    public List<Medico> findAll() {
-        return repo.findAll();
+    public Medico guardar(Medico medico) {
+        return medicoRepository.save(medico);
     }
 
-    public Medico findById(String id) {
-        return repo.findById(id).orElse(null);
+    public Medico actualizar(String id, Medico medicoActualizado) {
+        Optional<Medico> optionalMedico = medicoRepository.findById(id);
+
+        if (optionalMedico.isPresent()) {
+            Medico medicoExistente = optionalMedico.get();
+
+            // Ajustar campos según tu clase Medico
+            medicoExistente.setNombre(medicoActualizado.getNombre());
+            medicoExistente.setEspecialidad(medicoActualizado.getEspecialidad());
+            medicoExistente.setTelefono(medicoActualizado.getTelefono());
+            medicoExistente.setEmail(medicoActualizado.getEmail()); // ✅ aquí era "email", no "correo"
+
+            return medicoRepository.save(medicoExistente);
+        } else {
+            return null; // puedes lanzar una excepción si prefieres manejarlo de otra forma
+        }
     }
 
-    public void delete(String id) {
-        repo.deleteById(id);
+    public void eliminar(String id) {
+        medicoRepository.deleteById(id);
     }
 }

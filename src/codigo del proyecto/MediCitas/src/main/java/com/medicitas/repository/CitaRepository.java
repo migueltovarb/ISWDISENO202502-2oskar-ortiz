@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CitaRepository extends MongoRepository<Cita, String> {
-    // Ejemplo de búsqueda personalizada
-    Cita findByFecha(String fecha);
 }

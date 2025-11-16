@@ -1,10 +1,13 @@
 package com.medicitas.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.medicitas.model.Cita;
-import com.medicitas.repository.CitaRepository;
+import com.medicitas.service.CitaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/citas")
@@ -12,17 +15,39 @@ import java.util.List;
 public class CitaController {
 
     @Autowired
-    private CitaRepository citaRepository;
+    private CitaService citaService;
 
-    // ✅ 1. Obtener todas las citas
     @GetMapping
-    public List<Cita> getAllCitas() {
-        return citaRepository.findAll();
+    public List<Cita> listarTodas() {
+        return citaService.listarTodas();
     }
 
-    // ✅ 2. Crear una nueva cita (POST)
-    @PostMapping
-    public Cita crearCita(@RequestBody Cita cita) {
-        return citaRepository.save(cita);
+    @GetMapping("/{id}")
+    public ResponseEntity<Cita> obtenerPorId(@PathVariable String id) {
+        Optional<Cita> cita = citaService.obtenerPorId(id);
+        return cita.map(ResponseEntity::ok)
+                   .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Cita> crear(@RequestBody Cita cita) {
+        Cita nuevaCita = citaService.guardar(cita);
+        return ResponseEntity.ok(nuevaCita);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Cita> actualizar(@PathVariable String id, @RequestBody Cita cita) {
+        Cita citaActualizada = citaService.actualizar(id, cita);
+        if (citaActualizada != null) {
+            return ResponseEntity.ok(citaActualizada);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminar(@PathVariable String id) {
+        citaService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }
