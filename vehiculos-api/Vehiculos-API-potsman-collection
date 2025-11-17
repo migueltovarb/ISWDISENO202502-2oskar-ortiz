@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "vehiculos-api-collection",
+		"name": "Vehiculos API - CRUD Completo",
+		"description": "Colección completa para probar la API REST de Vehículos con Spring Boot + MongoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CRUD Básico",
+			"item": [
+				{
+					"name": "1. GET - Obtener todos los vehículos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Obtiene la lista completa de todos los vehículos registrados"
+					},
+					"response": []
+				},
+				{
+					"name": "2. POST - Crear vehículo Toyota",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Toyota\",\n  \"modelo\": \"Corolla\",\n  \"anio\": 2023,\n  \"color\": \"Blanco\",\n  \"placa\": \"ABC-123\",\n  \"precio\": 85000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Automatica\",\n  \"kilometraje\": 5000,\n  \"estado\": \"Nuevo\",\n  \"descripcion\": \"Vehículo en excelente estado\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Crea un nuevo vehículo Toyota Corolla"
+					},
+					"response": []
+				},
+				{
+					"name": "3. POST - Crear vehículo Chevrolet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Chevrolet\",\n  \"modelo\": \"Spark\",\n  \"anio\": 2022,\n  \"color\": \"Rojo\",\n  \"placa\": \"DEF-456\",\n  \"precio\": 45000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Manual\",\n  \"kilometraje\": 15000,\n  \"estado\": \"Usado\",\n  \"descripcion\": \"Económico y en buen estado\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Crea un nuevo vehículo Chevrolet Spark"
+					},
+					"response": []
+				},
+				{
+					"name": "4. POST - Crear vehículo Mazda",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Mazda\",\n  \"modelo\": \"CX-5\",\n  \"anio\": 2024,\n  \"color\": \"Negro\",\n  \"placa\": \"GHI-789\",\n  \"precio\": 120000000,\n  \"tipoCombustible\": \"Híbrido\",\n  \"transmision\": \"Automatica\",\n  \"kilometraje\": 0,\n  \"estado\": \"Nuevo\",\n  \"descripcion\": \"SUV híbrida de última generación\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Crea un nuevo vehículo Mazda CX-5"
+					},
+					"response": []
+				},
+				{
+					"name": "5. POST - Crear vehículo Ford",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Ford\",\n  \"modelo\": \"Mustang\",\n  \"anio\": 2023,\n  \"color\": \"Azul\",\n  \"placa\": \"JKL-012\",\n  \"precio\": 180000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Automatica\",\n  \"kilometraje\": 2000,\n  \"estado\": \"Nuevo\",\n  \"descripcion\": \"Deportivo icónico americano\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Crea un nuevo vehículo Ford Mustang"
+					},
+					"response": []
+				},
+				{
+					"name": "6. GET - Obtener vehículo por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/{{vehiculo_id}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "{{vehiculo_id}}"]
+						},
+						"description": "Obtiene un vehículo específico por su ID. Reemplaza {{vehiculo_id}} con un ID real."
+					},
+					"response": []
+				},
+				{
+					"name": "7. PUT - Actualizar vehículo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Toyota\",\n  \"modelo\": \"Corolla\",\n  \"anio\": 2023,\n  \"color\": \"Blanco\",\n  \"placa\": \"ABC-123\",\n  \"precio\": 80000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Automatica\",\n  \"kilometraje\": 8000,\n  \"estado\": \"Usado\",\n  \"descripcion\": \"Vehículo en excelente estado, precio negociable\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/{{vehiculo_id}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "{{vehiculo_id}}"]
+						},
+						"description": "Actualiza un vehículo existente. Reemplaza {{vehiculo_id}} con un ID real."
+					},
+					"response": []
+				},
+				{
+					"name": "8. DELETE - Eliminar vehículo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/{{vehiculo_id}}",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "{{vehiculo_id}}"]
+						},
+						"description": "Elimina un vehículo por su ID. Reemplaza {{vehiculo_id}} con un ID real."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Búsquedas Avanzadas",
+			"item": [
+				{
+					"name": "9. GET - Buscar por placa",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/placa/ABC-123",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "placa", "ABC-123"]
+						},
+						"description": "Busca un vehículo por su placa única"
+					},
+					"response": []
+				},
+				{
+					"name": "10. GET - Buscar por marca",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/buscar/marca/Toyota",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "buscar", "marca", "Toyota"]
+						},
+						"description": "Busca todos los vehículos de una marca específica"
+					},
+					"response": []
+				},
+				{
+					"name": "11. GET - Buscar por marca y modelo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/buscar/marca/Toyota/modelo/Corolla",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "buscar", "marca", "Toyota", "modelo", "Corolla"]
+						},
+						"description": "Busca vehículos por marca y modelo específicos"
+					},
+					"response": []
+				},
+				{
+					"name": "12. GET - Buscar por rango de año",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/buscar/anio?inicio=2020&fin=2024",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "buscar", "anio"],
+							"query": [
+								{
+									"key": "inicio",
+									"value": "2020"
+								},
+								{
+									"key": "fin",
+									"value": "2024"
+								}
+							]
+						},
+						"description": "Busca vehículos dentro de un rango de años"
+					},
+					"response": []
+				},
+				{
+					"name": "13. GET - Buscar por rango de precio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/buscar/precio?min=40000000&max=90000000",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "buscar", "precio"],
+							"query": [
+								{
+									"key": "min",
+									"value": "40000000"
+								},
+								{
+									"key": "max",
+									"value": "90000000"
+								}
+							]
+						},
+						"description": "Busca vehículos dentro de un rango de precios"
+					},
+					"response": []
+				},
+				{
+					"name": "14. GET - Buscar por tipo de combustible",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/buscar/combustible/Gasolina",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "buscar", "combustible", "Gasolina"]
+						},
+						"description": "Busca vehículos por tipo de combustible (Gasolina, Diesel, Eléctrico, Híbrido)"
+					},
+					"response": []
+				},
+				{
+					"name": "15. GET - Buscar por estado",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/buscar/estado/Nuevo",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "buscar", "estado", "Nuevo"]
+						},
+						"description": "Busca vehículos por estado (Nuevo, Usado, Excelente, Bueno, Regular)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pruebas de Validación",
+			"item": [
+				{
+					"name": "16. POST - Error: Sin placa (debe fallar)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Ford\",\n  \"modelo\": \"Fiesta\",\n  \"anio\": 2021,\n  \"color\": \"Azul\",\n  \"precio\": 55000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Manual\",\n  \"kilometraje\": 20000,\n  \"estado\": \"Usado\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Prueba de validación: intenta crear un vehículo sin placa (debe retornar error 400)"
+					},
+					"response": []
+				},
+				{
+					"name": "17. POST - Error: Placa duplicada (debe fallar)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Renault\",\n  \"modelo\": \"Logan\",\n  \"anio\": 2020,\n  \"color\": \"Gris\",\n  \"placa\": \"ABC-123\",\n  \"precio\": 35000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Manual\",\n  \"kilometraje\": 30000,\n  \"estado\": \"Usado\",\n  \"descripcion\": \"Vehículo familiar\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Prueba de validación: intenta crear un vehículo con placa duplicada ABC-123 (debe retornar error 409 Conflict)"
+					},
+					"response": []
+				},
+				{
+					"name": "18. POST - Error: Año inválido (debe fallar)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Nissan\",\n  \"modelo\": \"Versa\",\n  \"anio\": 2026,\n  \"color\": \"Plata\",\n  \"placa\": \"XYZ-999\",\n  \"precio\": 60000000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Automatica\",\n  \"kilometraje\": 0,\n  \"estado\": \"Nuevo\",\n  \"descripcion\": \"Año futuro inválido\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Prueba de validación: intenta crear un vehículo con año 2026 (debe retornar error 400)"
+					},
+					"response": []
+				},
+				{
+					"name": "19. POST - Error: Precio negativo (debe fallar)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Kia\",\n  \"modelo\": \"Rio\",\n  \"anio\": 2021,\n  \"color\": \"Verde\",\n  \"placa\": \"MNO-888\",\n  \"precio\": -5000,\n  \"tipoCombustible\": \"Gasolina\",\n  \"transmision\": \"Manual\",\n  \"kilometraje\": 10000,\n  \"estado\": \"Usado\",\n  \"descripcion\": \"Precio inválido\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos"]
+						},
+						"description": "Prueba de validación: intenta crear un vehículo con precio negativo (debe retornar error 400)"
+					},
+					"response": []
+				},
+				{
+					"name": "20. GET - Error: ID inexistente (debe fallar)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/vehiculos/000000000000000000000000",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "vehiculos", "000000000000000000000000"]
+						},
+						"description": "Prueba de error: intenta obtener un vehículo con ID inexistente (debe retornar error 404)"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
