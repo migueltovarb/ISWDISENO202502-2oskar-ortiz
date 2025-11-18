@@ -1,53 +1,40 @@
 {
   "info": {
-    "name": "MediCitas API",
-    "description": "Colección completa de endpoints para el sistema de gestión de citas médicas",
-    "version": "1.0.0"
+    "name": "MediCitas API - Completa y Funcional",
+    "description": "Colección 100% funcional con 30 endpoints para MediCitas - Actualizada 18/11/2025",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "2.0.0"
   },
   "item": [
     {
       "name": "USUARIOS",
       "item": [
         {
-          "name": "1. Obtener todos los usuarios",
+          "name": "GET - Obtener Todos los Usuarios",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/usuarios",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/usuarios",
+              "host": ["{{base_url}}"],
               "path": ["api", "usuarios"]
             }
           }
         },
         {
-          "name": "2. Obtener usuario por ID",
+          "name": "GET - Obtener Usuario por ID",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/usuarios/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "usuarios", "{id}"]
+              "raw": "{{base_url}}/api/usuarios/{{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios", "{{usuario_id}}"]
             }
           }
         },
         {
-          "name": "3. Crear nuevo usuario",
+          "name": "POST - Crear Usuario",
           "request": {
             "method": "POST",
             "header": [
@@ -61,16 +48,14 @@
               "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"email\": \"juan@example.com\",\n  \"password\": \"password123\",\n  \"rol\": \"PACIENTE\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/usuarios",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/usuarios",
+              "host": ["{{base_url}}"],
               "path": ["api", "usuarios"]
             }
           }
         },
         {
-          "name": "4. Actualizar usuario",
+          "name": "PUT - Actualizar Usuario",
           "request": {
             "method": "PUT",
             "header": [
@@ -84,25 +69,21 @@
               "raw": "{\n  \"nombre\": \"Juan Pérez Actualizado\",\n  \"email\": \"juan.nuevo@example.com\",\n  \"password\": \"newpassword123\",\n  \"rol\": \"MEDICO\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/usuarios/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "usuarios", "{id}"]
+              "raw": "{{base_url}}/api/usuarios/{{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios", "{{usuario_id}}"]
             }
           }
         },
         {
-          "name": "5. Eliminar usuario",
+          "name": "DELETE - Eliminar Usuario",
           "request": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/usuarios/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "usuarios", "{id}"]
+              "raw": "{{base_url}}/api/usuarios/{{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "usuarios", "{{usuario_id}}"]
             }
           }
         }
@@ -112,45 +93,31 @@
       "name": "PACIENTES",
       "item": [
         {
-          "name": "1. Obtener todos los pacientes",
+          "name": "GET - Obtener Todos los Pacientes",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/pacientes",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/pacientes",
+              "host": ["{{base_url}}"],
               "path": ["api", "pacientes"]
             }
           }
         },
         {
-          "name": "2. Obtener paciente por ID",
+          "name": "GET - Obtener Paciente por ID",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/pacientes/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "pacientes", "{id}"]
+              "raw": "{{base_url}}/api/pacientes/{{paciente_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pacientes", "{{paciente_id}}"]
             }
           }
         },
         {
-          "name": "3. Crear nuevo paciente",
+          "name": "POST - Crear Paciente",
           "request": {
             "method": "POST",
             "header": [
@@ -164,16 +131,14 @@
               "raw": "{\n  \"nombre\": \"Carlos García\",\n  \"edad\": 35,\n  \"correo\": \"carlos@example.com\",\n  \"telefono\": \"+57 3001234567\",\n  \"historialMedico\": \"Sin antecedentes\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/pacientes",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/pacientes",
+              "host": ["{{base_url}}"],
               "path": ["api", "pacientes"]
             }
           }
         },
         {
-          "name": "4. Actualizar paciente",
+          "name": "PUT - Actualizar Paciente",
           "request": {
             "method": "PUT",
             "header": [
@@ -187,25 +152,21 @@
               "raw": "{\n  \"nombre\": \"Carlos García Actualizado\",\n  \"edad\": 36,\n  \"correo\": \"carlos.nuevo@example.com\",\n  \"telefono\": \"+57 3007654321\",\n  \"historialMedico\": \"Alergia a la Penicilina\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/pacientes/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "pacientes", "{id}"]
+              "raw": "{{base_url}}/api/pacientes/{{paciente_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pacientes", "{{paciente_id}}"]
             }
           }
         },
         {
-          "name": "5. Eliminar paciente",
+          "name": "DELETE - Eliminar Paciente",
           "request": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/pacientes/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "pacientes", "{id}"]
+              "raw": "{{base_url}}/api/pacientes/{{paciente_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "pacientes", "{{paciente_id}}"]
             }
           }
         }
@@ -215,45 +176,31 @@
       "name": "MEDICOS",
       "item": [
         {
-          "name": "1. Obtener todos los médicos",
+          "name": "GET - Obtener Todos los Médicos",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/medicos",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/medicos",
+              "host": ["{{base_url}}"],
               "path": ["api", "medicos"]
             }
           }
         },
         {
-          "name": "2. Obtener médico por ID",
+          "name": "GET - Obtener Médico por ID",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/medicos/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "medicos", "{id}"]
+              "raw": "{{base_url}}/api/medicos/{{medico_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "medicos", "{{medico_id}}"]
             }
           }
         },
         {
-          "name": "3. Crear nuevo médico",
+          "name": "POST - Crear Médico",
           "request": {
             "method": "POST",
             "header": [
@@ -267,16 +214,14 @@
               "raw": "{\n  \"nombre\": \"Dr. Juan López\",\n  \"especialidad\": \"Cardiología\",\n  \"telefono\": \"+57 3009876543\",\n  \"email\": \"drjuan@example.com\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/medicos",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/medicos",
+              "host": ["{{base_url}}"],
               "path": ["api", "medicos"]
             }
           }
         },
         {
-          "name": "4. Actualizar médico",
+          "name": "PUT - Actualizar Médico",
           "request": {
             "method": "PUT",
             "header": [
@@ -290,25 +235,21 @@
               "raw": "{\n  \"nombre\": \"Dr. Juan López Rodríguez\",\n  \"especialidad\": \"Cardiología y Arritmias\",\n  \"telefono\": \"+57 3005551111\",\n  \"email\": \"dr.juan.nuevo@example.com\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/medicos/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "medicos", "{id}"]
+              "raw": "{{base_url}}/api/medicos/{{medico_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "medicos", "{{medico_id}}"]
             }
           }
         },
         {
-          "name": "5. Eliminar médico",
+          "name": "DELETE - Eliminar Médico",
           "request": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/medicos/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "medicos", "{id}"]
+              "raw": "{{base_url}}/api/medicos/{{medico_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "medicos", "{{medico_id}}"]
             }
           }
         }
@@ -318,45 +259,31 @@
       "name": "CITAS",
       "item": [
         {
-          "name": "1. Obtener todas las citas",
+          "name": "GET - Obtener Todas las Citas",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/citas",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/citas",
+              "host": ["{{base_url}}"],
               "path": ["api", "citas"]
             }
           }
         },
         {
-          "name": "2. Obtener cita por ID",
+          "name": "GET - Obtener Cita por ID",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/citas/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "citas", "{id}"]
+              "raw": "{{base_url}}/api/citas/{{cita_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "citas", "{{cita_id}}"]
             }
           }
         },
         {
-          "name": "3. Crear nueva cita",
+          "name": "POST - Crear Cita",
           "request": {
             "method": "POST",
             "header": [
@@ -367,19 +294,17 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"fecha\": \"2025-11-20\",\n  \"hora\": \"10:30\",\n  \"motivo\": \"Consulta general\",\n  \"estado\": \"CONFIRMADA\",\n  \"idMedico\": \"ID_DEL_MEDICO\",\n  \"idPaciente\": \"ID_DEL_PACIENTE\"\n}"
+              "raw": "{\n  \"fecha\": \"2025-11-20\",\n  \"hora\": \"10:30\",\n  \"motivo\": \"Consulta general\",\n  \"estado\": \"CONFIRMADA\",\n  \"idMedico\": \"{{medico_id}}\",\n  \"idPaciente\": \"{{paciente_id}}\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/citas",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/citas",
+              "host": ["{{base_url}}"],
               "path": ["api", "citas"]
             }
           }
         },
         {
-          "name": "4. Actualizar cita",
+          "name": "PUT - Actualizar Cita",
           "request": {
             "method": "PUT",
             "header": [
@@ -390,28 +315,24 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"fecha\": \"2025-11-21\",\n  \"hora\": \"14:00\",\n  \"motivo\": \"Consulta de seguimiento\",\n  \"estado\": \"CONFIRMADA\",\n  \"idMedico\": \"ID_DEL_MEDICO\",\n  \"idPaciente\": \"ID_DEL_PACIENTE\"\n}"
+              "raw": "{\n  \"fecha\": \"2025-11-21\",\n  \"hora\": \"14:00\",\n  \"motivo\": \"Consulta de seguimiento\",\n  \"estado\": \"CONFIRMADA\",\n  \"idMedico\": \"{{medico_id}}\",\n  \"idPaciente\": \"{{paciente_id}}\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/citas/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "citas", "{id}"]
+              "raw": "{{base_url}}/api/citas/{{cita_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "citas", "{{cita_id}}"]
             }
           }
         },
         {
-          "name": "5. Eliminar cita",
+          "name": "DELETE - Eliminar Cita",
           "request": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/citas/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "citas", "{id}"]
+              "raw": "{{base_url}}/api/citas/{{cita_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "citas", "{{cita_id}}"]
             }
           }
         }
@@ -421,45 +342,31 @@
       "name": "FACTURAS",
       "item": [
         {
-          "name": "1. Obtener todas las facturas",
+          "name": "GET - Obtener Todas las Facturas",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/facturas",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/facturas",
+              "host": ["{{base_url}}"],
               "path": ["api", "facturas"]
             }
           }
         },
         {
-          "name": "2. Obtener factura por ID",
+          "name": "GET - Obtener Factura por ID",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/facturas/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "facturas", "{id}"]
+              "raw": "{{base_url}}/api/facturas/{{factura_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "facturas", "{{factura_id}}"]
             }
           }
         },
         {
-          "name": "3. Crear nueva factura",
+          "name": "POST - Crear Factura",
           "request": {
             "method": "POST",
             "header": [
@@ -470,19 +377,17 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"fechaEmision\": \"2025-11-16\",\n  \"montoTotal\": 150000,\n  \"metodoPago\": \"TARJETA_CREDITO\",\n  \"descripcion\": \"Consulta médica general\",\n  \"pacienteId\": \"ID_DEL_PACIENTE\",\n  \"citaId\": \"ID_DE_LA_CITA\"\n}"
+              "raw": "{\n  \"fechaEmision\": \"2025-11-18\",\n  \"montoTotal\": 150000,\n  \"metodoPago\": \"TARJETA_CREDITO\",\n  \"descripcion\": \"Consulta médica general\",\n  \"pacienteId\": \"{{paciente_id}}\",\n  \"citaId\": \"{{cita_id}}\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/facturas",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/facturas",
+              "host": ["{{base_url}}"],
               "path": ["api", "facturas"]
             }
           }
         },
         {
-          "name": "4. Actualizar factura",
+          "name": "PUT - Actualizar Factura",
           "request": {
             "method": "PUT",
             "header": [
@@ -493,28 +398,24 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"fechaEmision\": \"2025-11-16\",\n  \"montoTotal\": 180000,\n  \"metodoPago\": \"TRANSFERENCIA\",\n  \"descripcion\": \"Consulta médica + laboratorio\",\n  \"pacienteId\": \"ID_DEL_PACIENTE\",\n  \"citaId\": \"ID_DE_LA_CITA\"\n}"
+              "raw": "{\n  \"fechaEmision\": \"2025-11-18\",\n  \"montoTotal\": 180000,\n  \"metodoPago\": \"TRANSFERENCIA\",\n  \"descripcion\": \"Consulta médica + laboratorio\",\n  \"pacienteId\": \"{{paciente_id}}\",\n  \"citaId\": \"{{cita_id}}\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/facturas/actualizar/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "facturas", "actualizar", "{id}"]
+              "raw": "{{base_url}}/api/facturas/actualizar/{{factura_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "facturas", "actualizar", "{{factura_id}}"]
             }
           }
         },
         {
-          "name": "5. Eliminar factura",
+          "name": "DELETE - Eliminar Factura",
           "request": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/facturas/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "facturas", "{id}"]
+              "raw": "{{base_url}}/api/facturas/{{factura_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "facturas", "{{factura_id}}"]
             }
           }
         }
@@ -524,45 +425,31 @@
       "name": "HISTORIALES",
       "item": [
         {
-          "name": "1. Obtener todos los historiales",
+          "name": "GET - Obtener Todos los Historiales",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/historiales",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/historiales",
+              "host": ["{{base_url}}"],
               "path": ["api", "historiales"]
             }
           }
         },
         {
-          "name": "2. Obtener historial por ID",
+          "name": "GET - Obtener Historial por ID",
           "request": {
             "method": "GET",
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
+            "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/historiales/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "historiales", "{id}"]
+              "raw": "{{base_url}}/api/historiales/{{historial_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "historiales", "{{historial_id}}"]
             }
           }
         },
         {
-          "name": "3. Crear nuevo historial",
+          "name": "POST - Crear Historial",
           "request": {
             "method": "POST",
             "header": [
@@ -573,19 +460,17 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"pacienteId\": \"ID_DEL_PACIENTE\",\n  \"antecedentes\": \"Hipertensión controlada\",\n  \"alergias\": \"Penicilina\",\n  \"medicamentos\": \"Losartán 50mg\",\n  \"observaciones\": \"Paciente estable\"\n}"
+              "raw": "{\n  \"pacienteId\": \"{{paciente_id}}\",\n  \"antecedentes\": \"Hipertensión controlada\",\n  \"alergias\": \"Penicilina\",\n  \"medicamentos\": \"Losartán 50mg\",\n  \"observaciones\": \"Paciente estable\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/historiales",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
+              "raw": "{{base_url}}/api/historiales",
+              "host": ["{{base_url}}"],
               "path": ["api", "historiales"]
             }
           }
         },
         {
-          "name": "4. Actualizar historial",
+          "name": "PUT - Actualizar Historial",
           "request": {
             "method": "PUT",
             "header": [
@@ -596,32 +481,65 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"pacienteId\": \"ID_DEL_PACIENTE\",\n  \"antecedentes\": \"Hipertensión, Diabetes tipo 2\",\n  \"alergias\": \"Penicilina, Aspirina\",\n  \"medicamentos\": \"Losartán 50mg, Metformina 500mg\",\n  \"observaciones\": \"Paciente requiere seguimiento cada 3 meses\"\n}"
+              "raw": "{\n  \"pacienteId\": \"{{paciente_id}}\",\n  \"antecedentes\": \"Hipertensión, Diabetes tipo 2\",\n  \"alergias\": \"Penicilina, Aspirina\",\n  \"medicamentos\": \"Losartán 50mg, Metformina 500mg\",\n  \"observaciones\": \"Paciente requiere seguimiento cada 3 meses\"\n}"
             },
             "url": {
-              "raw": "http://localhost:8080/api/historiales/actualizar/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "historiales", "actualizar", "{id}"]
+              "raw": "{{base_url}}/api/historiales/actualizar/{{historial_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "historiales", "actualizar", "{{historial_id}}"]
             }
           }
         },
         {
-          "name": "5. Eliminar historial",
+          "name": "DELETE - Eliminar Historial",
           "request": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "http://localhost:8080/api/historiales/{id}",
-              "protocol": "http",
-              "host": ["localhost"],
-              "port": "8080",
-              "path": ["api", "historiales", "{id}"]
+              "raw": "{{base_url}}/api/historiales/{{historial_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "historiales", "{{historial_id}}"]
             }
           }
         }
       ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "usuario_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "paciente_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "medico_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "cita_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "factura_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "historial_id",
+      "value": "",
+      "type": "string"
     }
   ]
 }

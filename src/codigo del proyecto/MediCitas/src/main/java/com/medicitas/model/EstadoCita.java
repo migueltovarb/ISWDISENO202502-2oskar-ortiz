@@ -7,4 +7,3 @@ public enum EstadoCita {
     REPROGRAMADA,
     COMPLETADA
 }
-

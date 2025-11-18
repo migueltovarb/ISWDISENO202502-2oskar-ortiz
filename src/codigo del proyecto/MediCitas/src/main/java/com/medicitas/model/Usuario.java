@@ -11,7 +11,7 @@ public class Usuario {
     private String nombre;
     private String email;
     private String password;
-    private String rol; // ADMIN, MEDICO o PACIENTE
+    private String rol;
 
     public Usuario() {}
 
@@ -22,7 +22,6 @@ public class Usuario {
         this.rol = rol;
     }
 
-    // Getters y Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
@@ -38,4 +37,3 @@ public class Usuario {
     public String getRol() { return rol; }
     public void setRol(String rol) { this.rol = rol; }
 }
-

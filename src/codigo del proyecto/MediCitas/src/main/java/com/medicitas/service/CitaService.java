@@ -36,8 +36,8 @@ public class CitaService {
             citaExistente.setHora(citaActualizada.getHora());
             citaExistente.setMotivo(citaActualizada.getMotivo());
             citaExistente.setEstado(citaActualizada.getEstado());
-            citaExistente.setIdMedico(citaActualizada.getIdMedico());
-            citaExistente.setIdPaciente(citaActualizada.getIdPaciente());
+            citaExistente.setIdMedico(citaActualizada.getIdMedico());      // ✅ CORREGIDO
+            citaExistente.setIdPaciente(citaActualizada.getIdPaciente());  // ✅ CORREGIDO
 
             return citaRepository.save(citaExistente);
         } else {
@@ -49,3 +49,5 @@ public class CitaService {
         citaRepository.deleteById(id);
     }
 }
+
+

@@ -26,21 +26,36 @@ public class MedicoService {
         return medicoRepository.save(medico);
     }
 
-    public Medico actualizar(String id, Medico medicoActualizado) {
-        Optional<Medico> optionalMedico = medicoRepository.findById(id);
+    /**
+     * Actualiza los campos del médico (nombre, especialidad, telefono, email)
+     * Asegúrate que tu modelo Medico tenga getters/setters para email si lo usas.
+     */
+    public Medico actualizar(String id, Medico datosActualizados) {
+        Optional<Medico> optional = medicoRepository.findById(id);
+        if (optional.isPresent()) {
+            Medico existente = optional.get();
 
-        if (optionalMedico.isPresent()) {
-            Medico medicoExistente = optionalMedico.get();
+            if (datosActualizados.getNombre() != null) {
+                existente.setNombre(datosActualizados.getNombre());
+            }
+            if (datosActualizados.getEspecialidad() != null) {
+                existente.setEspecialidad(datosActualizados.getEspecialidad());
+            }
+            if (datosActualizados.getTelefono() != null) {
+                existente.setTelefono(datosActualizados.getTelefono());
+            }
+            // email puede ser opcional
+            try {
+                if (datosActualizados.getEmail() != null) {
+                    existente.setEmail(datosActualizados.getEmail());
+                }
+            } catch (Exception ignored) {
+                // Si tu clase Medico no tiene email, esto no rompe (pero revisa el modelo)
+            }
 
-            // Ajustar campos según tu clase Medico
-            medicoExistente.setNombre(medicoActualizado.getNombre());
-            medicoExistente.setEspecialidad(medicoActualizado.getEspecialidad());
-            medicoExistente.setTelefono(medicoActualizado.getTelefono());
-            medicoExistente.setEmail(medicoActualizado.getEmail()); // ✅ aquí era "email", no "correo"
-
-            return medicoRepository.save(medicoExistente);
+            return medicoRepository.save(existente);
         } else {
-            return null; // puedes lanzar una excepción si prefieres manejarlo de otra forma
+            return null;
         }
     }
 

@@ -33,10 +33,11 @@ public class HistorialMedicoController {
         return ResponseEntity.ok(historialService.guardar(historial));
     }
 
-    @PutMapping("/actualizar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<HistorialMedico> actualizar(@PathVariable String id, @RequestBody HistorialMedico historial) {
         HistorialMedico actualizado = historialService.actualizar(id, historial);
-        return actualizado != null ? ResponseEntity.ok(actualizado) : ResponseEntity.notFound().build();
+        return actualizado != null ? ResponseEntity.ok(actualizado)
+                                   : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")

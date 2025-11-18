@@ -33,18 +33,14 @@ public class FacturaController {
 
     @PostMapping
     public ResponseEntity<Factura> crearFactura(@RequestBody Factura factura) {
-        Factura nuevaFactura = facturaService.crearFactura(factura);
-        return ResponseEntity.ok(nuevaFactura);
+        return ResponseEntity.ok(facturaService.crearFactura(factura));
     }
 
-    @PutMapping("/actualizar/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Factura> actualizarFactura(@PathVariable String id, @RequestBody Factura facturaActualizada) {
         Factura factura = facturaService.actualizarFactura(id, facturaActualizada);
-        if (factura != null) {
-            return ResponseEntity.ok(factura);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return factura != null ? ResponseEntity.ok(factura)
+                               : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
@@ -53,3 +49,4 @@ public class FacturaController {
         return ResponseEntity.noContent().build();
     }
 }
+

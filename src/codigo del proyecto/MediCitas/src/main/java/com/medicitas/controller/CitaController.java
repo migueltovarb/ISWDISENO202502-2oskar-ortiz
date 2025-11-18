@@ -26,10 +26,10 @@ public class CitaController {
     public ResponseEntity<Cita> obtenerPorId(@PathVariable String id) {
         Optional<Cita> cita = citaService.obtenerPorId(id);
         return cita.map(ResponseEntity::ok)
-                   .orElseGet(() -> ResponseEntity.notFound().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping(consumes = "application/json", produces = "application/json")
+    @PostMapping
     public ResponseEntity<Cita> crear(@RequestBody Cita cita) {
         Cita nuevaCita = citaService.guardar(cita);
         return ResponseEntity.ok(nuevaCita);
@@ -38,11 +38,8 @@ public class CitaController {
     @PutMapping("/{id}")
     public ResponseEntity<Cita> actualizar(@PathVariable String id, @RequestBody Cita cita) {
         Cita citaActualizada = citaService.actualizar(id, cita);
-        if (citaActualizada != null) {
-            return ResponseEntity.ok(citaActualizada);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return citaActualizada != null ? ResponseEntity.ok(citaActualizada)
+                                       : ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")

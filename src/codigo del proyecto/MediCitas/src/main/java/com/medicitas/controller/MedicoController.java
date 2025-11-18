@@ -18,51 +18,44 @@ public class MedicoController {
     @Autowired
     private MedicoService medicoService;
 
-    // ✅ Obtener todos los médicos
     @GetMapping
-    public ResponseEntity<List<Medico>> listarTodos() {
-        return ResponseEntity.ok(medicoService.listarTodos());
+    public List<Medico> listarTodos() {
+        return medicoService.listarTodos();
     }
 
-    // ✅ Obtener médico por ID
     @GetMapping("/{id}")
     public ResponseEntity<Medico> obtenerPorId(@PathVariable String id) {
-        Optional<Medico> medico = medicoService.obtenerPorId(id);
-        return medico.map(ResponseEntity::ok)
-                     .orElse(ResponseEntity.notFound().build());
+        return medicoService.obtenerPorId(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    // ✅ Crear médico
-    @PostMapping(consumes = "application/json", produces = "application/json")
+    @PostMapping
     public ResponseEntity<Medico> crear(@RequestBody Medico medico) {
-        Medico nuevo = medicoService.guardar(medico);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevo);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(medicoService.guardar(medico));
     }
 
-    // ✅ Actualizar médico (URL estándar REST: /api/medicos/{id})
-    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    @PutMapping("/{id}")
     public ResponseEntity<?> actualizar(@PathVariable String id, @RequestBody Medico medicoActualizado) {
-        Optional<Medico> medicoExistente = medicoService.obtenerPorId(id);
+        Optional<Medico> medico = medicoService.obtenerPorId(id);
 
-        if (medicoExistente.isEmpty()) {
+        if (medico.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("❌ Médico con ID " + id + " no encontrado.");
+                    .body("Médico no encontrado.");
         }
 
-        Medico medicoGuardado = medicoService.actualizar(id, medicoActualizado);
-        return ResponseEntity.ok(medicoGuardado);
+        return ResponseEntity.ok(medicoService.actualizar(id, medicoActualizado));
     }
 
-    // ✅ Eliminar médico
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable String id) {
-        Optional<Medico> medico = medicoService.obtenerPorId(id);
-        if (medico.isPresent()) {
+        if (medicoService.obtenerPorId(id).isPresent()) {
             medicoService.eliminar(id);
             return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body("❌ Médico con ID " + id + " no encontrado.");
         }
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("Médico no encontrado.");
     }
 }

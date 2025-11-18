@@ -16,8 +16,8 @@
 
 ### 1. Compilar
 ```powershell
-cd "ruta/al/MediCitas"
-set PATH=C:\Users\Admin\maven\bin;%PATH%
+cd "src/codigo del proyecto/MediCitas"
+dir
 mvn clean install -DskipTests
 ```
 

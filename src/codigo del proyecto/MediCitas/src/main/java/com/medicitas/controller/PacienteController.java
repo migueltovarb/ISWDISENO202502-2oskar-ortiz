@@ -10,19 +10,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pacientes")
-@CrossOrigin(origins = "http://localhost:5173") // Cambia según el puerto de tu frontend
+@CrossOrigin(origins = "*")  // ✅ CORREGIDO - era "http://localhost:5173"
 public class PacienteController {
 
     @Autowired
     private PacienteService pacienteService;
 
-    // 🟢 1. Obtener todos los pacientes
     @GetMapping
     public ResponseEntity<List<Paciente>> getAllPacientes() {
         return ResponseEntity.ok(pacienteService.listar());
     }
 
-    // 🟢 2. Obtener un paciente por ID
     @GetMapping("/{id}")
     public ResponseEntity<Paciente> getPacienteById(@PathVariable String id) {
         return pacienteService.buscarPorId(id)
@@ -30,14 +28,12 @@ public class PacienteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // 🟢 3. Crear un nuevo paciente
     @PostMapping
     public ResponseEntity<Paciente> createPaciente(@RequestBody Paciente paciente) {
         Paciente nuevoPaciente = pacienteService.crear(paciente);
         return ResponseEntity.ok(nuevoPaciente);
     }
 
-    // 🟡 4. Actualizar un paciente existente
     @PutMapping("/{id}")
     public ResponseEntity<Paciente> updatePaciente(@PathVariable String id, @RequestBody Paciente pacienteActualizado) {
         return pacienteService.buscarPorId(id).map(p -> {
@@ -50,7 +46,6 @@ public class PacienteController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    // 🔴 5. Eliminar un paciente por ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePaciente(@PathVariable String id) {
         if (pacienteService.buscarPorId(id).isPresent()) {

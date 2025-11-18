@@ -29,12 +29,11 @@ public class HistorialMedicoService {
     public HistorialMedico actualizar(String id, HistorialMedico actualizado) {
         return historialRepository.findById(id)
                 .map(historial -> {
-                    historial.setDiagnostico(actualizado.getDiagnostico());
-                    historial.setTratamiento(actualizado.getTratamiento());
-                    historial.setFecha(actualizado.getFecha());
-                    historial.setObservaciones(actualizado.getObservaciones());
                     historial.setPacienteId(actualizado.getPacienteId());
-                    historial.setMedicoId(actualizado.getMedicoId());
+                    historial.setAntecedentes(actualizado.getAntecedentes());  // ✅ CORREGIDO
+                    historial.setAlergias(actualizado.getAlergias());          // ✅ CORREGIDO
+                    historial.setMedicamentos(actualizado.getMedicamentos());  // ✅ CORREGIDO
+                    historial.setObservaciones(actualizado.getObservaciones());
                     return historialRepository.save(historial);
                 })
                 .orElse(null);

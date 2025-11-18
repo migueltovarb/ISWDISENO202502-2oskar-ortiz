@@ -8,12 +8,12 @@ public class Cita {
 
     @Id
     private String id;
-    private String fecha;      // Ejemplo: "2025-11-10"
-    private String hora;       // Ejemplo: "09:30"
-    private String motivo;     // Ejemplo: "Consulta general"
-    private String estado;     // Ejemplo: "Agendada", "Cancelada", "Completada"
-    private String idMedico;   // ID del médico
-    private String idPaciente; // ID del paciente
+    private String fecha;
+    private String hora;
+    private String motivo;
+    private String estado;
+    private String idMedico;
+    private String idPaciente;
 
     public Cita() {}
 
@@ -26,7 +26,6 @@ public class Cita {
         this.idPaciente = idPaciente;
     }
 
-    // Getters y Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 

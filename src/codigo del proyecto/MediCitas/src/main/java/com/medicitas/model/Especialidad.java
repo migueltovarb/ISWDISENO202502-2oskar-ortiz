@@ -1,9 +1,12 @@
 package com.medicitas.model;
 
-public enum  Especialidad {
+public enum Especialidad {
     MEDICINA_GENERAL,
     CARDIOLOGIA,
     PEDIATRIA,
     DERMATOLOGIA,
-    GINECOLOGIA
+    GINECOLOGIA,
+    NEUROLOGIA,
+    OFTALMOLOGIA,
+    TRAUMATOLOGIA
 }

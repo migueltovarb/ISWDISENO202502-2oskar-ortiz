@@ -27,25 +27,35 @@ public class UsuarioService {
     }
 
     public Usuario guardar(Usuario usuario) {
+        if (usuarioRepository.findByEmail(usuario.getEmail()).isPresent()) {
+            throw new IllegalArgumentException("El email ya está registrado.");
+        }
         return usuarioRepository.save(usuario);
     }
 
     public Usuario actualizar(String id, Usuario usuarioActualizado) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
+        Usuario existente = usuarioRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado."));
 
-        if (optionalUsuario.isPresent()) {
-            Usuario usuarioExistente = optionalUsuario.get();
-            usuarioExistente.setNombre(usuarioActualizado.getNombre());
-            usuarioExistente.setEmail(usuarioActualizado.getEmail());
-            usuarioExistente.setPassword(usuarioActualizado.getPassword());
-            usuarioExistente.setRol(usuarioActualizado.getRol());
-            return usuarioRepository.save(usuarioExistente);
-        } else {
-            return null;
+        if (!existente.getEmail().equals(usuarioActualizado.getEmail())) {
+            if (usuarioRepository.findByEmail(usuarioActualizado.getEmail()).isPresent()) {
+                throw new IllegalArgumentException("El email ya está en uso por otro usuario.");
+            }
         }
+
+        existente.setNombre(usuarioActualizado.getNombre());
+        existente.setEmail(usuarioActualizado.getEmail());
+        existente.setPassword(usuarioActualizado.getPassword());
+        existente.setRol(usuarioActualizado.getRol());
+        // ✅ NO tiene setTelefono porque Usuario no tiene campo telefono
+
+        return usuarioRepository.save(existente);
     }
 
     public void eliminar(String id) {
+        if (!usuarioRepository.existsById(id)) {
+            throw new IllegalArgumentException("Usuario no encontrado.");
+        }
         usuarioRepository.deleteById(id);
     }
 }

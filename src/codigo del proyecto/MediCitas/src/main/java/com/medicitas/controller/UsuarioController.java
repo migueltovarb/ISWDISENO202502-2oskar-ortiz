@@ -3,11 +3,11 @@ package com.medicitas.controller;
 import com.medicitas.model.Usuario;
 import com.medicitas.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/usuarios")
@@ -19,45 +19,60 @@ public class UsuarioController {
 
     // ✅ Listar todos los usuarios
     @GetMapping
-    public List<Usuario> listarTodos() {
-        return usuarioService.listarTodos();
+    public ResponseEntity<List<Usuario>> listarTodos() {
+        List<Usuario> usuarios = usuarioService.listarTodos();  // ✅ CORREGIDO
+        return ResponseEntity.ok(usuarios);
     }
 
     // ✅ Obtener usuario por ID
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> obtenerPorId(@PathVariable String id) {
-        Optional<Usuario> usuario = usuarioService.obtenerPorId(id);
-        return usuario.map(ResponseEntity::ok)
+        return usuarioService.obtenerPorId(id)  // ✅ CORREGIDO
+                .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     // ✅ Crear nuevo usuario
-    @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Usuario> crear(@RequestBody Usuario usuario) {
-        Usuario nuevoUsuario = usuarioService.guardar(usuario);
-        return ResponseEntity.ok(nuevoUsuario);
+    @PostMapping
+    public ResponseEntity<?> crear(@RequestBody Usuario usuario) {
+        try {
+            Usuario creado = usuarioService.guardar(usuario);  // ✅ CORREGIDO
+            return ResponseEntity.status(HttpStatus.CREATED).body(creado);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al crear usuario.");
+        }
     }
 
     // ✅ Actualizar usuario
-    @PutMapping("/actualizar/{id}")
-    public ResponseEntity<Usuario> actualizar(@PathVariable String id, @RequestBody Usuario usuarioActualizado) {
-        Usuario usuarioGuardado = usuarioService.actualizar(id, usuarioActualizado);
-        if (usuarioGuardado != null) {
-            return ResponseEntity.ok(usuarioGuardado);
-        } else {
-            return ResponseEntity.notFound().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<?> actualizar(@PathVariable String id, @RequestBody Usuario usuarioActualizado) {
+        try {
+            Usuario actualizado = usuarioService.actualizar(id, usuarioActualizado);  // ✅ CORREGIDO
+            return ResponseEntity.ok(actualizado);
+        } catch (IllegalArgumentException e) {
+            String msg = e.getMessage() != null ? e.getMessage().toLowerCase() : "";
+            if (msg.contains("no encontrado")) {
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            } else {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al actualizar usuario.");
         }
     }
 
     // ✅ Eliminar usuario
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable String id) {
-        Optional<Usuario> usuario = usuarioService.obtenerPorId(id);
-        if (usuario.isPresent()) {
-            usuarioService.eliminar(id);
+    public ResponseEntity<?> eliminar(@PathVariable String id) {
+        try {
+            usuarioService.eliminar(id);  // ✅ CORREGIDO
             return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al eliminar usuario.");
         }
     }
 }

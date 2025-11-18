@@ -2,18 +2,17 @@ package com.medicitas.service;
 
 import com.medicitas.model.Factura;
 import com.medicitas.repository.FacturaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class FacturaService {
 
-    private final FacturaRepository facturaRepository;
-
-    public FacturaService(FacturaRepository facturaRepository) {
-        this.facturaRepository = facturaRepository;
-    }
+    @Autowired
+    private FacturaRepository facturaRepository;
 
     public List<Factura> listarFacturas() {
         return facturaRepository.findAll();

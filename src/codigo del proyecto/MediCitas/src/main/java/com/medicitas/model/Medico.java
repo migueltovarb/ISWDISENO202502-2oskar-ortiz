@@ -22,7 +22,6 @@ public class Medico {
         this.email = email;
     }
 
-    // Getters y Setters
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
