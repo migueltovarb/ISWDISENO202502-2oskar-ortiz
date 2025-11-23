@@ -24,8 +24,8 @@ Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **W
 | Configuración del repositorio | ✅ Completado |
 | Historias de usuario | ✅ Completado |
 | Diagramas UML | ✅ Completado |
-| Desarrollo funcional (Java, BD, APIs) | ⏳ En progreso |
-| Pruebas y despliegue | ⏳ Pendiente |
+| Desarrollo funcional (Java, BD, APIs) | ✅ Completado |
+| Pruebas y despliegue | ✅ Completado |
 
 ---
 ---
@@ -35,7 +35,7 @@ Toda la documentación se encuentra disponible en la carpeta `/docs` y en la **W
 ### 📂 Organización del repositorio
 
 El proyecto **MediCitas** ahora cuenta con una estructura de carpetas actualizada y organizada dentro del repositorio GitHub:
-se encuentra en abajo de docs que es la carpeta principal de documentacion del proyecto final, abajo de docs se encuentra la carpeta del codigo back y front, todo el codigo completo 
+se encuentra en abajo de docs que es la carpeta principal de documentacion del proyecto final, abajo de docs se encuentra la carpeta del codigo back, todo el codigo completo 
 
 ---
 
